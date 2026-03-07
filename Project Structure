@@ -1,0 +1,8 @@
+DeepCSAT-Ecommerce-CSAT-Prediction
+│
+├── DeepCSAT_Project.ipynb
+├── app.py
+├── csat_model.pkl
+├── eCommerce_Customer_support_data.csv
+├── requirements.txt
+└── README.md
