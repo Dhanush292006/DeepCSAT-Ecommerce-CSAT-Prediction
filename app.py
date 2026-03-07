@@ -1,14 +1,14 @@
 import streamlit as st
-import pandas as pd
 import numpy as np
-import pickle
+import joblib
 
-# Load model
-model = pickle.load(open("csat_model.pkl", "rb"))
+st.title("DeepCSAT - Customer Satisfaction Prediction")
 
-st.title("DeepCSAT - Ecommerce Customer Satisfaction Prediction")
-
-st.write("Enter customer support details to predict CSAT Score")
+try:
+    model = joblib.load("csat_model.pkl")
+except:
+    st.error("Model file not found. Please upload csat_model.pkl to the repository.")
+    st.stop()
 
 response_time = st.number_input("Response Time")
 handling_time = st.number_input("Handling Time")
