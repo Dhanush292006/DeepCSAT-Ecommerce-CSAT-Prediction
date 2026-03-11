@@ -2,16 +2,12 @@ import streamlit as st
 import numpy as np
 import joblib
 
+model = joblib.load("csat_model.pkl")
+
 st.title("DeepCSAT - Customer Satisfaction Prediction")
 
-try:
-    model = joblib.load("csat_model.pkl")
-except:
-    st.error("Model file not found. Please upload csat_model.pkl to the repository.")
-    st.stop()
-
-response_time = st.number_input("Response Time")
-handling_time = st.number_input("Handling Time")
+response_time = st.number_input("Response Time", min_value=0.0)
+handling_time = st.number_input("Handling Time", min_value=0.0)
 
 if st.button("Predict CSAT"):
 
